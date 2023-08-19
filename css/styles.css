@@ -1,0 +1,23 @@
+header {
+  color: white;
+  background-color: #0081b9;
+}
+
+p {
+  font-size: x-large;
+}
+
+p,
+button {
+  letter-spacing: 2px;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgb(85, 85, 85);
+  background-color: #e12727;
+}
