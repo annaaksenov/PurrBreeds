@@ -1,0 +1,38 @@
+.hidden {
+  display: none !important;
+}
+
+.container {
+  max-width: 575px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.column-halves {
+  height: 50px;
+  text-align: center;
+  flex-basis: 50%;
+}
+
+.column-full,
+.column-halves {
+  width: 100%;
+}
+
+.center {
+  padding: 70px 0;
+}
+
+button {
+  height: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
