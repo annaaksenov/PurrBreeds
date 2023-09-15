@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 header {
   color: white;
   background-color: #0081b9;
