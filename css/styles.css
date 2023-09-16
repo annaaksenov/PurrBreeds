@@ -25,3 +25,27 @@ button {
   box-shadow: 0 3px 10px rgb(85, 85, 85);
   background-color: #e12727;
 }
+
+.banner {
+  display: flex;
+  justify-content: center;
+}
+
+.cat-holder,
+.quiz {
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+input {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+}

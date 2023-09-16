@@ -23,8 +23,11 @@ header {
   width: 100%;
 }
 
-.center {
-  padding: 70px 0;
+/* .center {
+} */
+
+.cat-holder {
+  /* position: relative; */
 }
 
 button {
