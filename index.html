@@ -19,28 +19,29 @@
     </header>
 
     <main class="container">
+
       <div data-view="start-view" class="hidden">
         <div class="row">
           <div class="column-halves">
             <p>Do you know your cats?</p>
           </div>
           <div class="column-halves">
-            <button>Give me a cat!</button>
+            <button class="start">Give me a cat!</button>
           </div>
         </div>
       </div>
 
-      <div data-view="guess-view">
-        <div class="banner column-full">
-          <h2>Scottish Fold</h2>
-        </div>
-        <div class="row cat-container">
-          <div class="column-full cat-holder">
-            <img src="./images/placeholder-image-square.jpg.jpg">
+      <div data-view="guess-view" class="">
+        <div class="row">
+          <div class="banner column-full">
+            <h2>Scottish Fold</h2>
           </div>
         </div>
-        <div class="row">
-          <div class="column-full quiz">
+        <div class="row cat-quiz">
+          <div class="column-half cat-img">
+            <img src="./images/placeholder-image-square.jpg.jpg">
+          </div>
+          <div class="column-half choices">
             <label><input type="button" value="a"/></label>
             <label><input type="button" value="b"/></label>
             <label><input type="button" value="c"/></label>

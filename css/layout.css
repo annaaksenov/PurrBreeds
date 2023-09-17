@@ -13,24 +13,13 @@ header {
 }
 
 .column-halves {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 50px;
-  text-align: center;
-  flex-basis: 50%;
 }
 
-.column-full,
-.column-halves {
-  width: 100%;
-}
-
-/* .center {
-} */
-
-.cat-holder {
-  /* position: relative; */
-}
-
-button {
+.start {
   height: 40px;
 }
 
