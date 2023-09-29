@@ -27,29 +27,21 @@ function swap(view) {
 const startBtn = document.querySelector('.start');
 startBtn.addEventListener('click', handleStart);
 function handleStart(e) {
-  // Need to load 10 cats
-
   swap('guess-view');
   getTenCats();
-  getImages();
-  getBreed();
+  getBreedAndImage();
 }
 
-function getImages() {
+const breeds = [];
+const images = [];
+function getBreedAndImage() {
   for (let i = 0; i < data.queue.length; i++) {
-    const images = [];
-    images.push(data.queue[i].url);
-    // console.log(images);
-  }
-}
-
-function getBreed() {
-  for (let i = 0; i < data.queue.length; i++) {
-    const breeds = [];
     breeds.push(data.queue[i].breeds[0].name);
+    images.push(data.queue[i].url);
     // console.log(breeds);
   }
 }
-// const banner = document.querySelector('h2');
+
 // const img = document.querySelector('img');
-// query the multiple choice
+// let count = 0;
+// function handleNextPictureQuiz() {}
