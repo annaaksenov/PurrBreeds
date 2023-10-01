@@ -36,8 +36,7 @@ button {
 }
 
 h2 {
-  /* color: #e5e5e5; */
-  color: white;
+  color: black;
 }
 
 img {
@@ -67,4 +66,12 @@ input {
   margin: 5px auto;
   background-color: white;
   cursor: pointer;
+}
+
+.correct {
+  background-color: rgb(57, 255, 57);
+}
+
+.incorrect {
+  background-color: red;
 }

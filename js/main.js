@@ -3,10 +3,8 @@ function getTenCats() {
   xhr.open('GET', 'https://api.thecatapi.com/v1/images/search?has_breeds=1&limit=10&api_key=live_NO1khTMuP3C8aJanIQAydCR1eolXjepWGEGEpBl2zkQDPctiac7A92lHoSqOpCdz');
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    // console.log(xhr.status, xhr.response);
     const json = xhr.response;
     data.queue = json;
-    // console.log('data.queue', data.queue[0].name); for (let i = 0; i < json.length; i++) {}
   });
   xhr.send();
 }
@@ -24,24 +22,48 @@ function swap(view) {
   }
 }
 
-const startBtn = document.querySelector('.start');
-startBtn.addEventListener('click', handleStart);
-function handleStart(e) {
-  swap('guess-view');
-  getTenCats();
-  getBreedAndImage();
-}
-
 const breeds = [];
 const images = [];
 function getBreedAndImage() {
   for (let i = 0; i < data.queue.length; i++) {
     breeds.push(data.queue[i].breeds[0].name);
     images.push(data.queue[i].url);
-    // console.log(breeds);
   }
 }
 
-// const img = document.querySelector('img');
-// let count = 0;
-// function handleNextPictureQuiz() {}
+const img = document.querySelector('img');
+const inputs = document.querySelectorAll('input');
+
+const quizCount = 0;
+function handleQuiz() {
+  img.setAttribute('src', images[quizCount]);
+  const number = getRandomIndex(0, 2);
+  inputs[number].setAttribute('value', breeds[quizCount]);
+  inputs[number].addEventListener('click', function (e) {
+    if (e) {
+      inputs[number].classList.add('correct');
+    }
+  }
+  );
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[number] !== inputs[i]) {
+      inputs[i].setAttribute('value', breeds[getRandomIndex(0, 9)]);
+      inputs[i].addEventListener('click', function (e) {
+        inputs[i].classList.add('incorrect');
+      });
+    }
+  }
+}
+
+function getRandomIndex(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const startBtn = document.querySelector('.start');
+startBtn.addEventListener('click', handleStart);
+function handleStart(e) {
+  swap('guess-view');
+  getTenCats();
+  getBreedAndImage();
+  handleQuiz();
+}
