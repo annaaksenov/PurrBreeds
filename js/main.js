@@ -34,6 +34,7 @@ function getBreedAndImage() {
 
 const img = document.querySelector('img');
 const inputs = document.querySelectorAll('input');
+const h2 = document.querySelector('h2');
 
 const quizCount = 0;
 let usedIndex = [];
@@ -44,6 +45,7 @@ function handleQuiz() {
   inputs[number].addEventListener('click', function (e) {
     if (e) {
       inputs[number].classList.add('correct');
+      h2.textContent = breeds[quizCount];
     }
   }
   );
