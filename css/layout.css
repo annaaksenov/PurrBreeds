@@ -12,22 +12,18 @@ header {
   justify-content: center;
 }
 
+.start-view {
+  height: 100vh;
+}
+
 .column-halves {
-  height: 50px;
-  text-align: center;
-  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
 }
 
-.column-full,
-.column-halves {
-  width: 100%;
-}
-
-.center {
-  padding: 70px 0;
-}
-
-button {
+.start {
   height: 40px;
 }
 

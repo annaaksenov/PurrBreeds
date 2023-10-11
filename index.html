@@ -18,17 +18,39 @@
       <p>PurrBreeds</p>
     </header>
 
-    <main>
-      <div class="row center">
-        <div class="column-halves">
-          <p>Do you know your cats?</p>
+    <main class="container">
+
+      <div data-view="start-view" class="">
+        <div class="row">
+          <div class="column-halves">
+            <p>Do you know your cats?</p>
+          </div>
+          <div class="column-halves">
+            <button class="start">Give me a cat!</button>
+          </div>
         </div>
-        <div class="column-halves">
-          <button>Give me a cat!</button>
+      </div>
+
+      <div data-view="guess-view" class="hidden">
+        <div class="row">
+          <div class="banner column-full">
+            <h2></h2>
+          </div>
+        </div>
+        <div class="row cat-quiz">
+          <div class="column-half cat-img">
+            <img src="./images/placeholder-image-square.jpg.jpg" alt="cat image">
+          </div>
+          <div class="column-half choices">
+            <label><input type="button" value="a" class=""/></label>
+            <label><input type="button" value="b" class=""/></label>
+            <label><input type="button" value="c" class=""/></label>
+          </div>
         </div>
       </div>
     </main>
   </div>
   <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
 </body>
 </html>
