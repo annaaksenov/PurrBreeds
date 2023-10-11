@@ -29,12 +29,14 @@ function getBreedAndImage() {
     breeds.push(data.queue[i].breeds[0].name);
     images.push(data.queue[i].url);
   }
+  // console.log(breeds);
 }
 
 const img = document.querySelector('img');
 const inputs = document.querySelectorAll('input');
 
 const quizCount = 0;
+let usedIndex = [];
 function handleQuiz() {
   img.setAttribute('src', images[quizCount]);
   const number = getRandomIndex(0, 2);
@@ -47,9 +49,19 @@ function handleQuiz() {
   );
   for (let i = 0; i < inputs.length; i++) {
     if (inputs[number] !== inputs[i]) {
-      inputs[i].setAttribute('value', breeds[getRandomIndex(0, 9)]);
+      let randomIndex;
+      do {
+        randomIndex = getRandomIndex(0, 9);
+      } while (usedIndex.includes(randomIndex));
+      usedIndex.push(randomIndex);
+      inputs[i].setAttribute('value', breeds[randomIndex]);
       inputs[i].addEventListener('click', function (e) {
         inputs[i].classList.add('incorrect');
+        usedIndex = [];
+      // inputs[i].setAttribute('value', breeds[getRandomIndex(0, 9)]);
+      // inputs[i].addEventListener('click', function (e) {
+      //   inputs[i].classList.add('incorrect');
+      // });
       });
     }
   }
