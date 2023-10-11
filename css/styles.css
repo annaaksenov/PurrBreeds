@@ -68,10 +68,10 @@ input {
   cursor: pointer;
 }
 
-.correct {
+.correct.active {
   background-color: rgb(57, 255, 57);
 }
 
-.incorrect {
+.incorrect.active {
   background-color: red;
 }

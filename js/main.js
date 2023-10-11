@@ -60,10 +60,14 @@ function handleQuiz() {
       inputs[i].addEventListener('click', function (e) {
         inputs[i].classList.add('incorrect');
         usedIndex = [];
-      // inputs[i].setAttribute('value', breeds[getRandomIndex(0, 9)]);
-      // inputs[i].addEventListener('click', function (e) {
-      //   inputs[i].classList.add('incorrect');
-      // });
+      });
+      inputs.forEach(input => {
+        input.addEventListener('click', () => {
+          inputs.forEach(otherInput => {
+            otherInput.classList.remove('active');
+          });
+          input.classList.add('active');
+        });
       });
     }
   }
