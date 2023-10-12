@@ -75,3 +75,17 @@ input {
 .incorrect.active {
   background-color: red;
 }
+
+.next-icon {
+  height: auto;
+  width: 290px;
+  margin: 0 auto;
+}
+
+i {
+  display: flex;
+  float: right;
+  padding-top: 20px;
+  color: #0081b9;
+  cursor: pointer;
+}

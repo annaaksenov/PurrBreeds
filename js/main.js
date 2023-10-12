@@ -35,6 +35,7 @@ function getBreedAndImage() {
 const img = document.querySelector('img');
 const inputs = document.querySelectorAll('input');
 const h2 = document.querySelector('h2');
+const nextIcon = document.querySelector('i');
 
 const quizCount = 0;
 let usedIndex = [];
@@ -46,6 +47,7 @@ function handleQuiz() {
     if (e) {
       inputs[number].classList.add('correct');
       h2.textContent = breeds[quizCount];
+      nextIcon.classList.remove('hidden');
     }
   }
   );
