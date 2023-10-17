@@ -29,27 +29,56 @@ function getBreedAndImage() {
     breeds.push(data.queue[i].breeds[0].name);
     images.push(data.queue[i].url);
   }
+  // console.log(breeds);
 }
+
+let quizCount = 0;
+const nextIcon = document.querySelector('i');
+nextIcon.addEventListener('click', function nextQuiz() {
+  quizCount++;
+  nextIcon.classList.add('hidden');
+  h2.textContent = '';
+  inputs.forEach(input => input.classList.remove('active'));
+  handleQuiz();
+});
 
 const img = document.querySelector('img');
 const inputs = document.querySelectorAll('input');
+const h2 = document.querySelector('h2');
+// const restart = document.querySelector();
 
-const quizCount = 0;
+let usedIndex = [];
 function handleQuiz() {
   img.setAttribute('src', images[quizCount]);
   const number = getRandomIndex(0, 2);
   inputs[number].setAttribute('value', breeds[quizCount]);
   inputs[number].addEventListener('click', function (e) {
-    if (e) {
+    if (e && quizCount < 9) {
+      nextIcon.classList.remove('hidden');
       inputs[number].classList.add('correct');
+      h2.textContent = breeds[quizCount];
     }
-  }
-  );
+    inputs.forEach(input => input.setAttribute('disabled', ''));
+  });
   for (let i = 0; i < inputs.length; i++) {
     if (inputs[number] !== inputs[i]) {
-      inputs[i].setAttribute('value', breeds[getRandomIndex(0, 9)]);
+      let randomIndex;
+      do {
+        randomIndex = getRandomIndex(0, 9);
+      } while (usedIndex.includes(randomIndex));
+      usedIndex.push(randomIndex);
+      inputs[i].setAttribute('value', breeds[randomIndex]);
       inputs[i].addEventListener('click', function (e) {
         inputs[i].classList.add('incorrect');
+        usedIndex = [];
+      });
+      inputs.forEach(input => {
+        input.addEventListener('click', () => {
+          inputs.forEach(otherInput => {
+            otherInput.classList.remove('active');
+          });
+          input.classList.add('active');
+        });
       });
     }
   }

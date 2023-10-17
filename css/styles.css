@@ -30,6 +30,11 @@ button {
   background-color: #e12727;
 }
 
+.restart {
+  display: flex;
+  margin: 10px auto;
+}
+
 .banner {
   display: flex;
   justify-content: center;
@@ -41,8 +46,8 @@ h2 {
 
 img {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: 250px;
+  object-fit: contain;
 }
 
 .cat-img,
@@ -59,7 +64,7 @@ img {
 
 input {
   display: flex;
-  width: 95%;
+  width: 90%;
   padding: 5px;
   border-radius: 5px;
   justify-content: center;
@@ -68,10 +73,28 @@ input {
   cursor: pointer;
 }
 
-.correct {
+.prevent-select {
+  user-select: none;
+}
+
+.correct.active {
   background-color: rgb(57, 255, 57);
 }
 
-.incorrect {
+.incorrect.active {
   background-color: red;
+}
+
+.next-icon {
+  height: auto;
+  width: 290px;
+  margin: 0 auto;
+}
+
+i {
+  display: flex;
+  float: right;
+  padding-top: 20px;
+  color: #0081b9;
+  cursor: pointer;
 }
