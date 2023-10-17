@@ -39,6 +39,7 @@ nextIcon.addEventListener('click', function nextQuiz() {
   nextIcon.classList.add('hidden');
   h2.textContent = '';
   inputs.forEach(input => input.classList.remove('active'));
+  inputs.forEach(input => input.removeAttribute('disabled'));
   handleQuiz();
 });
 
