@@ -38,7 +38,7 @@ nextIcon.addEventListener('click', function nextQuiz() {
   quizCount++;
   nextIcon.classList.add('hidden');
   h2.textContent = '';
-  inputs.forEach(input => input.classList.remove('active'));
+  inputs.forEach(input => input.classList.remove('active', 'incorrect', 'correct'));
   inputs.forEach(input => input.removeAttribute('disabled'));
   handleQuiz();
 });
@@ -55,8 +55,9 @@ function handleQuiz() {
   inputs[number].setAttribute('value', breeds[quizCount]);
   inputs[number].addEventListener('click', function (e) {
     if (e && quizCount < 9) {
-      nextIcon.classList.remove('hidden');
       inputs[number].classList.add('correct');
+      inputs[number].classList.remove('incorrect');
+      nextIcon.classList.remove('hidden');
       h2.textContent = breeds[quizCount];
     }
     inputs.forEach(input => input.setAttribute('disabled', ''));
@@ -65,7 +66,7 @@ function handleQuiz() {
     if (inputs[number] !== inputs[i]) {
       let randomIndex;
       do {
-        randomIndex = getRandomIndex(0, 9);
+        randomIndex = getRandomIndex(0, 8);
       } while (usedIndex.includes(randomIndex));
       usedIndex.push(randomIndex);
       inputs[i].setAttribute('value', breeds[randomIndex]);
