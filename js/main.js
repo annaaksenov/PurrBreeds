@@ -67,7 +67,7 @@ function handleQuiz() {
       let randomIndex;
       do {
         randomIndex = getRandomIndex(0, 8);
-      } while (usedIndex.includes(randomIndex));
+      } while (usedIndex.includes(randomIndex, quizCount));
       usedIndex.push(randomIndex);
       inputs[i].setAttribute('value', breeds[randomIndex]);
       inputs[i].addEventListener('click', function (e) {
