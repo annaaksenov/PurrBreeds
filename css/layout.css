@@ -27,6 +27,22 @@ header {
   height: 40px;
 }
 
+.cat-quiz {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 160px;
+  z-index: 1;
+}
+
+.next-icon {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 530px;
+  z-index: 1;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 100%;
