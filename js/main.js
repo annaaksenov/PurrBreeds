@@ -38,39 +38,49 @@ nextIcon.addEventListener('click', function nextQuiz() {
   quizCount++;
   nextIcon.classList.add('hidden');
   h2.textContent = '';
-  inputs.forEach(input => input.classList.remove('active'));
+  inputs.forEach(input => {
+    input.removeEventListener('click', handleAnswer);
+  });
+  inputs.forEach(input => input.classList.remove('active', 'incorrect', 'correct'));
+  inputs.forEach(input => input.removeAttribute('disabled'));
+  inputs.forEach(input => input.setAttribute('value', ''));
+  usedIndex = [];
   handleQuiz();
 });
 
 const img = document.querySelector('img');
 const inputs = document.querySelectorAll('input');
 const h2 = document.querySelector('h2');
+let number;
+
 // const restart = document.querySelector();
+
+function handleAnswer() {
+  inputs[number].classList.add('correct');
+  inputs[number].classList.remove('incorrect');
+  h2.textContent = breeds[quizCount];
+  if (quizCount < 10) {
+    nextIcon.classList.remove('hidden');
+  }
+  inputs.forEach(input => input.setAttribute('disabled', ''));
+}
 
 let usedIndex = [];
 function handleQuiz() {
+  number = getRandomIndex(0, 2);
   img.setAttribute('src', images[quizCount]);
-  const number = getRandomIndex(0, 2);
   inputs[number].setAttribute('value', breeds[quizCount]);
-  inputs[number].addEventListener('click', function (e) {
-    if (e && quizCount < 9) {
-      nextIcon.classList.remove('hidden');
-      inputs[number].classList.add('correct');
-      h2.textContent = breeds[quizCount];
-    }
-    inputs.forEach(input => input.setAttribute('disabled', ''));
-  });
+  inputs[number].addEventListener('click', handleAnswer);
   for (let i = 0; i < inputs.length; i++) {
-    if (inputs[number] !== inputs[i]) {
+    if (inputs[i] !== inputs[number]) {
       let randomIndex;
       do {
         randomIndex = getRandomIndex(0, 9);
-      } while (usedIndex.includes(randomIndex));
+      } while (randomIndex === quizCount || usedIndex.includes(randomIndex));
       usedIndex.push(randomIndex);
       inputs[i].setAttribute('value', breeds[randomIndex]);
       inputs[i].addEventListener('click', function (e) {
         inputs[i].classList.add('incorrect');
-        usedIndex = [];
       });
       inputs.forEach(input => {
         input.addEventListener('click', () => {
