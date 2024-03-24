@@ -21,7 +21,12 @@ As a student learning to code, I wanted to build an application, with the knowle
 - User can continue to the next picture to guess, if they were correct.
 - User can restart the quiz after completing 10 guesses.
 
-  ## Live Demo
+## Preview
 
-  Try the application live at [https://annaaksenov.github.io/PurrBreeds/]
+![PurrBreeds-demo](https://github.com/annaaksenov/PurrBreeds/assets/121647003/a06462d5-0ae9-4b3f-a4b1-04f87e675899)
+
+## Live Demo
+
+Try the application live at [https://annaaksenov.github.io/PurrBreeds/]
+
 
